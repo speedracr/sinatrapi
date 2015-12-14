@@ -1,0 +1,11 @@
+web-jonas:
+  image: gewo/ruby:2.2.3
+  volumes:
+    - .:/mnt
+    - $SSH_AUTH_SOCK:/tmp/agent.sock
+  environment:
+    - SSH_AUTH_SOCK=/tmp/agent.sock
+  ports:
+    - 4567:4567
+  working_dir: /mnt
+  command: bundle exec ruby application.rb
